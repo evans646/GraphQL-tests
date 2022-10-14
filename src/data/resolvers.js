@@ -32,7 +32,7 @@ export const resolvers = {
                 })
             })
         },
-        ///query to find all aliens, func of sqlize to find all items in the sqlite
+        ///query to find all aliens, func of squelize to find all items in the sqlite
         getAliens: () => {
             return Aliens.findAll();
         }

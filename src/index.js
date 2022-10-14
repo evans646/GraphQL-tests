@@ -1,14 +1,18 @@
+import * as dotenv from 'dotenv' 
+dotenv.config()
 import express from 'express';
 import { graphqlHTTP }  from 'express-graphql';
+
 import { schema } from './data/schema';
 
 const app = express();
 
-app
-.get('/', (req, res) => {
-    res.send('Graphql is amazing!');
-});
 
+// app
+// .get('/', (req, res) => {
+//     res.send('Graphql is amazing!');
+// });
+ 
 app
 .use('/graphql', graphqlHTTP({
     schema: schema,
@@ -17,4 +21,6 @@ app
 
 
 app
-.listen(8080, () => console.log('Running on server port localhost:8080/graphql'));
+  .listen(8080, () => console.log('Running on server port localhost:8080/graphql'));
+
+ 

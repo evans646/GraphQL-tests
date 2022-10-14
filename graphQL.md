@@ -164,7 +164,7 @@ const schema = buildSchema(`
     }
 `)
 
-Firstname i sthe field and the String is trhe type of data we exxpect. So a field could be a string , an array or anotehr types of data, for example we can have an array of emails, since others  may have more than one email, what we have to do is to define the type email. 
+Firstname is the field and the String is trhe type of data we exxpect. So a field could be a string , an array or anotehr types of data, for example we can have an array of emails, since others  may have more than one email, what we have to do is to define the type email. 
 First we define teh type we epxect with the email data :=>
 
   type Email {
@@ -190,7 +190,7 @@ const schema = buildSchema(`
 `)
 
 
-So on the index.js, we need to speciy the data type we are expecting, the email as an array in the resolver, it could return something froma database but we have to hard code it for now by adding new emails as an array field otherwise it's not going to work out:=>
+So on the index.js, we need to specify the data type we are expecting, the email as an array in the resolver, it could return something from a database but we have to hard code it for now by adding new emails as an array field otherwise it's not going to work out:=>
 
 const root = {friend:()=>{
     return {
@@ -253,8 +253,7 @@ Returns this =>
 
 QUERY AND MUTATION TYPES
 -----------------------
-
-The query type is responsilbe for defining what type of data should be returned when we make the query so in the above query, we are querying for a Friend type AND then we have mutations , which is basically graphQL way of chnaging or creating new data , we can build teh mutation so users can input new data in graphQL:
+The query type is responsible for defining what type of data should be returned when we make the query so in the above query, we are querying for a Friend type AND then we have mutations , which is basically graphQL way of chnaging or creating new data , we can build teh mutation so users can input new data in graphQL:
 
     input FriendInput{
         id: ID
@@ -264,13 +263,13 @@ The query type is responsilbe for defining what type of data should be returned 
         email:String
     }
 
-  This is the input type fried which basiaklly defines what the input takes, so now we need to create the a mutation type so we can use the input type to create new friends in graphQL or whatever database is connected :=>
+  This is the input type friend which basically defines what the input takes, so now we need to create the mutation type so we can use the input type to create new friends in graphQL or whatever database is connected :=>
 
      type Mutation {
         createFriend(input:FriendInput):Friend
     }
 
-  This will mutate the friend input to make sure that we have all the fields before creating anew friend, so if all the fields are valid, we will retyurn the results
+  This will mutate the friend input to make sure that we have all the fields before creating a new friend, so if all the fields are valid, we will return the results
 
   We can create a temporaly db to hold the friend data :=>
 
@@ -318,9 +317,9 @@ This is like using an internal database to hold the data on the express server w
 
 RESOLVERS AND IT'S ROLE
 -----------------------
-Are functions that responds to queries and mutaions , it gives us the result of teh query
+Are functions that responds to queries and mutaions , it gives us the result of the query
 
-We can make resolvers seprately from teh entry file :
+We can make resolvers seprately from the entry file :
 
 resolvers.js:
 
@@ -356,7 +355,7 @@ const resolvers = {
 };
 
 
-Since we have a functions that is creating anew friend, we can also create a functions to get friends from the DB =>
+Since we have a functions that is creating a new friend, we can also create a functions to get friends from the DB =>
 
    getFriend: ({ id }) => {
         return new Friend(id, friendDatabase[id]);
@@ -710,7 +709,7 @@ mutation {
     id
     age
   }
-}
+}c
 
 returns =>
 

@@ -5,9 +5,8 @@ import casual from 'casual';
 
 
 
-const dbUrl = 'mongodb+srv://gqlesst:TtwAN65jYgFqCaMx@cluster0.kvkhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
-mongoose.connect(dbUrl, {
+mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -21,7 +20,7 @@ const friendSchema = new mongoose.Schema({
         type: String
     },
     lastName: {
-        type: String
+        type: String  
     },
     gender: {
         type: String
@@ -45,7 +44,7 @@ const Friends = mongoose.model('friends', friendSchema);
 // SQL
 const sequelize = new Sequelize('database', null, null, {
     dialect: 'sqlite',
-    storage: './alien.sqlite',
+    storage: '../data/alineDB.sqlite',
 });
 
 //we define the table for the alien data
@@ -55,7 +54,7 @@ const Aliens = sequelize.define('aliens', {
     planet: { type: Sequelize.STRING },
 });
 
-//func to create new alines in the sqlite if not exist 
+//func to create new aliens in the sqlite if not exist  
 //start the server to check if there is no data, if not then we create 10 names inisde the db randomly
 //casul allows us to craete random things
 Aliens.sync({ force: true }).then(() => {
