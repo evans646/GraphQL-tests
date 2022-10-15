@@ -44,7 +44,7 @@ const Friends = mongoose.model('friends', friendSchema);
 // SQL
 const sequelize = new Sequelize('database', null, null, {
     dialect: 'sqlite',
-    storage: '../data/alineDB.sqlite',
+    storage: '../data/alienDB.sqlite',
 });
 
 //we define the table for the alien data
